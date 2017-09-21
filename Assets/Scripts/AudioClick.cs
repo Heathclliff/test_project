@@ -5,7 +5,11 @@ using UnityEngine;
 public class AudioClick : MonoBehaviour {
 
 	void Start () {
-        DontDestroyOnLoad(gameObject);
+		if (GameObject.FindGameObjectsWithTag ("Audio").Length != 1) {
+			DontDestroyOnLoad (gameObject);
+		} else {
+			Destroy (gameObject);
+		}
 	}
 
 }
