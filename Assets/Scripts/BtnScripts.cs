@@ -33,19 +33,18 @@ public class BtnScripts : MonoBehaviour {
 
     void OnMouseUpAsButton()
     {
-        if (PlayerPrefs.GetString("Music") != "no")
+		if (PlayerPrefs.GetString ("Music") != "no") {
+			GameObject.Find ("AudioClick").GetComponent<AudioSource> ().Play ();
+		}
+		print (gameObject.name);
+		switch (gameObject.name)
         {
-            GameObject.Find("AudioClick").GetComponent<AudioSource>().Play();
-        }
-
-        switch (gameObject.name)
-        {
-            case "Play":
+		case "Play(Clone)":
                 {
                     SceneManager.LoadScene("Play");
                     break;
                 }
-            case "Music":
+		case "Music(Clone)":
                 {
                     if (PlayerPrefs.GetString("Music") != "no")
                     {
@@ -61,7 +60,7 @@ public class BtnScripts : MonoBehaviour {
                     }
                     break;
                 }
-		case "home_btn":
+		case "Home":
 			{
 				SceneManager.LoadScene("main");
 				break;
